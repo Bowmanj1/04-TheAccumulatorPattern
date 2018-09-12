@@ -8,7 +8,7 @@ A subsequent module lets you practice the ACCUMULATOR pattern in another classic
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          their colleagues and Jacob Bowman.
-"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 # ----------------------------------------------------------------------
