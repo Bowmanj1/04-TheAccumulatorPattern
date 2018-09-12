@@ -70,8 +70,16 @@ def run_test_draw_parallel_lines():
 
 
 def draw_parallel_lines(n, point, length, window):
-    for k in range(n + 1):
-        line = rg.Line()
+    line = rg.Line(point, rg.Point(point.x + length, point.y))
+    for k in range(n +1):
+        drop = -30 * k
+        point.x = point.x + drop
+        point.y = point.y + drop
+        line.attach_to(window)
+        return point.x
+        return point.y
+
+    window.render()
 
     """
     What comes in: The four arguments are:
