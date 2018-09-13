@@ -73,12 +73,14 @@ def run_test_draw_squares_from_circle():
 
 
 def draw_squares_from_circle(n, circle, window):
-    squarex = rg.Point(circle.center.x, circle.center.y)
-    square = rg.Square(squarex, 2 * circle.radius)
-    for k in range(n + 1):
-        square.attach_to(window)
-        return squarex
     circle.attach_to(window)
+    circle2 = rg.Circle(circle.center, circle.radius)
+    for k in range(n):
+        square = rg.Square(circle2.center, 2 * circle2.radius)
+        square.attach_to(window)
+        move = circle2.radius
+        circle2.center.x = circle2.center.x + move
+        circle2.center.y = circle2.center.y + move
     window.render()
     """
     What comes in:  Three arguments:
@@ -105,7 +107,7 @@ def draw_squares_from_circle(n, circle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
