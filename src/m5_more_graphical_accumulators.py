@@ -138,6 +138,12 @@ def run_test_draw_circles_from_rectangle():
     rectangle1.fill_color = 'green'
     draw_circles_from_rectangle(4, 5, rectangle1, window1)
 
+    rectangle2 = rg.Rectangle(rg.Point(500, 400), rg.Point(600, 450))
+    rectangle2.outline_thickness = 5
+    rectangle2.outline_color = 'red'
+    rectangle2.fill_color = 'blue'
+    draw_circles_from_rectangle(8, 3, rectangle2, window1)
+
 
     # ------------------------------------------------------------------
     # TODO: 3. Implement this TEST function.
@@ -159,11 +165,19 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
     center_x = (rectangle.corner_1.x + rectangle.corner_2.x)/2
     center_y = (rectangle.corner_1.y + rectangle.corner_2.y)/2
     height = rectangle.corner_2.y - rectangle.corner_1.y
-    length = rectangle.corner_2.x - rectangle.corner_1.y
-    for k in range(m + 1):
-        circle = rg.Circle(rg.Point(center_x, center_y), )
-        circle
-    window.render
+    length = rectangle.corner_2.x - rectangle.corner_1.x
+    for k in range(m):
+        circle = rg.Circle(rg.Point(center_x - length/2 -height/2, center_y), height/2)
+        circle.fill_color = rectangle.fill_color
+        circle.attach_to(window)
+        center_x = center_x - height
+    center_x = (rectangle.corner_1.x + rectangle.corner_2.x) / 2
+    for k in range(n):
+        circle = rg.Circle(rg.Point(center_x, center_y - length/2 - height/2), length/2)
+        circle.outline_color = rectangle.outline_color
+        circle.attach_to(window)
+        center_y = center_y - length
+    window.render()
     """
     What comes in:  Four arguments:
       -- Positive integers m and n.
@@ -203,7 +217,7 @@ def draw_circles_from_rectangle(m, n, rectangle, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
